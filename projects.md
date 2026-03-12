@@ -59,7 +59,7 @@ This system helps scientists investigate how molecular signals and environmental
 
 You can build the most sophisticated machine learning model in the world by scraping publically available data. But if you can't functionally train and validate your model to explore unknown space, then what's the point? Biological AI has a huge ground-truth data bottleneck.
 
-During my time at Triplebar Bio, in collaboration with Google X and DeepMind, we tackled this exact problem to optimize a nuclease enzyme that degrades chronic wound biofilms. While the ML framework (TeleProt) was the engine, our ultra-high-throughput screening workflows provided the fuel.
+During my time at [Triplebar Bio](https://triplebar.com/), in collaboration with [Google X](https://x.company/) and [DeepMind](https://deepmind.google/), we tackled this exact problem to optimize a nuclease enzyme that degrades chronic wound biofilms. While the ML framework (TeleProt) was the engine, our ultra-high-throughput screening workflows provided the fuel.
 
 We generated a dataset of 55,000 distinct nuclease variants. By feeding the models this scale of function-first data, the AI outperformed traditional directed evolution in finding high-activity variants. And this was several years ago... We open-sourced the entire 55,000-variant genotype-phenotype landscape, because this volume of functional screening is what it takes to make biological AI work.
 
