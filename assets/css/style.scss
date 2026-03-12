@@ -1,0 +1,97 @@
+---
+---
+@import "{{ site.theme }}";
+
+/* Center align all text and inline content within the header */
+header {
+  text-align: center;
+}
+
+/* Override for the site title font size */
+header h1 { /* Changed from h1 to h2 to match _layouts/default.html */
+  font-size: 1.2rem; /* The default is 2rem. Feel free to adjust this value. */
+}
+
+/* Match page title font size to site title */
+section h1 {
+  font-size: 1.2rem;
+}
+
+/* Styling for the top navigation links */
+.main-nav {
+  display: flex; /* Use flexbox for horizontal distribution */
+  justify-content: space-between; /* Distribute items evenly with the first at the start and last at the end */
+  align-items: center; /* Vertically align items in the center */
+  font-size: 1.0rem;
+  margin-bottom: 0.6rem; /* Reduced space below the nav to bring the HR closer */
+  padding: 0; /* Remove any default padding */
+  width: 100%;
+}
+
+.main-nav a {
+  text-decoration: none; /* Remove default underline */
+  color: #3a77c2; /* Set to the theme blue color */
+  white-space: nowrap; /* Prevent links from wrapping to new lines */
+  /* Add some horizontal padding for better spacing and click area */
+  /* The first link will now be at the left edge, subsequent links will have 0.5rem to their left and right. */
+  padding: 0 0.5rem;
+}
+
+/* Style for the profile picture on the homepage */
+#profile-pic {
+  display: block; /* Ensure it behaves as a block element */
+  margin-left: auto; /* Center the image if header has width */
+  margin-right: auto; /* Center the image if header has width */
+  margin-bottom: 1.5rem; /* Space below the image */
+  width: 170px;
+  height: 170px;
+  object-fit: cover;    /* Prevents the image from being distorted */
+  border-radius: 50%; /* Make it round for a profile pic */
+  border: 2px solid #eee; /* Optional: add a subtle border */
+}
+
+/* Hide the default "View My GitHub Profile" link */
+header p.view {
+  display: none;
+}
+
+/* Ensure 'GitHub' is not transformed to 'Github' by theme styles */
+.social-media-list a[href*="github.com"] .username {
+  text-transform: none;
+}
+
+/*
+ * Layout adjustments for a wider page with a 1/3 sidebar to 2/3 content ratio.
+ * These rules apply to screens wider than the theme's mobile breakpoint.
+ * Default: sidebar=220px, content=600px.
+ */
+@media screen and (min-width: 961px) {
+  header {
+    width: 250px; /* Approximately 30% of the total content area (288 + 672 = 960) */
+  }
+
+  section {
+    max-width: 700px; /* Approximately 70% of the total content area (288 + 672 = 960) */
+    margin-left: 50px; /* New header width (288px) + original gap (60px) */
+  }
+}
+
+/* Styling for the new social links list */
+.social-links {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 1rem 0; /* Add some vertical spacing */
+}
+
+.social-links li {
+  margin-bottom: 0.5rem; /* Space between each link */
+}
+
+.social-links a {
+  color: #3a77c2; /* Very dark grey accent color */
+  text-decoration: none; /* Remove underline by default */
+}
+
+.social-links a:hover {
+  text-decoration: underline; /* Add underline on hover for interactivity */
+}

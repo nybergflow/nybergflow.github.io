@@ -1,0 +1,39 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% include head-custom.html %}
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <img src="/assets/img/nyberg.jpg" alt="Kendra Nyberg" id="profile-pic">
+
+        <h1><a href="{{ "/" | relative_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
+
+        <ul class="social-links">
+          {% for social in site.social_links %}
+            <li><a href="{{ social.user_url }}"><i class="{{ social.icon }}" style="margin-right: 5px;"></i> {{ social.platform }}</a></li>
+          {% endfor %}
+        </ul>
+      </header>
+      
+      <section>
+        {{ content }}
+      </section>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+  </body>
+</html>

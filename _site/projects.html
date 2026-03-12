@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Projects | Kendra Nyberg, Ph.D.</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Projects" />
+<meta name="author" content="Kendra Nyberg" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Staff microfluidics engineer at Calico. Building ultra-high-throughput workflows to fuel life science R&amp;D." />
+<meta property="og:description" content="Staff microfluidics engineer at Calico. Building ultra-high-throughput workflows to fuel life science R&amp;D." />
+<link rel="canonical" href="http://localhost:4000/projects.html" />
+<meta property="og:url" content="http://localhost:4000/projects.html" />
+<meta property="og:site_name" content="Kendra Nyberg, Ph.D." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Projects" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kendra Nyberg"},"description":"Staff microfluidics engineer at Calico. Building ultra-high-throughput workflows to fuel life science R&amp;D.","headline":"Projects","url":"http://localhost:4000/projects.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <img src="/assets/img/nyberg.jpg" alt="Kendra Nyberg" id="profile-pic">
+
+        <h1><a href="/">Kendra Nyberg, Ph.D.</a></h1>
+
+        <p>Staff microfluidics engineer at Calico. Building ultra-high-throughput workflows to fuel life science R&D.</p>
+
+        <ul class="social-links">
+          
+            <li><a href="https://github.com/nybergflow"><i class="fab fa-github" style="margin-right: 5px;"></i> GitHub</a></li>
+          
+            <li><a href="https://www.linkedin.com/in/kendranyberg"><i class="fab fa-linkedin" style="margin-right: 5px;"></i> LinkedIn</a></li>
+          
+        </ul>
+      </header>
+      
+      <section>
+        <!-- Note: For this to build correctly, a 'resources.md' file must exist in your project root. -->
+<nav class="main-nav">
+  <a href="/">Bio</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/publications.html">Publications</a>
+  <a href="/resources.html">Resources</a>
+</nav>
+<hr />
+
+<h3 id="piccolo">Piccolo</h3>
+
+<p><a href="https://github.com/nybergg/piccolo">Piccolo Ultra-High Throughput Screening Platform</a></p>
+
+<p>Piccolo is an ultra-high-throughput screening platform capable of processing millions of microfluidic droplets per hour. We’re using it at Calico for applications across our R&amp;D. This aim of sharing this repo publically is to provide an open-source alternative to the Labview-built systems.</p>
+
+<p>Most academic and industry droplet sorters are trapped in the LabVIEW ecosystem, which locks you into proprietary hardware and inflexible software. When I started building this system at Calico, I wanted to know: what if we built a high-performance sorter using standard, open-source languages like Python and Verilog?</p>
+
+<p>This repo contains the full-stack control software for our custom detection and sorting instrument, built from in-house optics, bespoke microfluidic modules, and the <a href="https://redpitaya.com/stemlab-125-14/">Red Pitaya</a> FPGA card. (Massive shoutout to <a href="https://github.com/MakerTobey">Tobias Wenzel</a> and his group for pointing me toward the Red Pitaya, which made this entire architecture possible).</p>
+
+<p>Goodbye LabVIEW. Hello Python and Verilog. And yes, you can develop it further with your LLM of choice. More coming soon on this front.</p>
+
+<p><strong>Calico Collaborators:</strong> Alfred Millett-Sikking, Lauren Washburn, Amirali Selahi, Rob Keyser.</p>
+
+<p><img src="/assets/img/piccolo_social_preview.png" alt="Piccolo" title="Piccolo" /></p>
+
+<hr />
+
+<h3 id="salda">SALDA</h3>
+
+<p><a href="https://github.com/amsikking/SALDA_for_timelapse_microscopy">A simple automatic liquid dispense arrangement (SALDA) for timelapse microscopy</a></p>
+
+<p>Sometimes you need to add a drug during live-cell imaging, which usually means hovering over the microscope, holding your breath while pipetting into a well, and praying you don’t knock your sample out of focus. It’s a nightmare workflow that wrecks your environmental control (temperature and CO2) and introduces vibrations that completely destroy the timelapse.</p>
+
+<p>We built SALDA (Simple Automatic Liquid Dispense Arrangement) to eliminate the microscope gymnastics.</p>
+
+<p>Instead of manually pipetting, SALDA uses a programmatically controlled syringe pump and a custom fluidic setup to dispense liquid directly into multiwell plates while they are actively being imaged. It dispenses volumes as low as 10µL with massive precision, nails the timing perfectly, and lets you keep the incubator completely sealed. This repo shows the setup for a specific stage-top incubator, but the architecture is dead simple to adapt to nearly any system.</p>
+
+<p><strong>Calico Collaborators:</strong> Alfred Millett-Sikking*, Julia Lazzari-Dean, Elliot Mount, Rob Keyser.</p>
+
+<p><img src="/assets/img/SALDA_social_preview.png" alt="SALDA" title="SALDA" /></p>
+
+<hr />
+
+<h3 id="angiogenesis-on-a-chip">Angiogenesis-on-a-chip</h3>
+
+<p>The formation of new blood vessels — known as angiogenesis — is a fundamental biological process that plays an important role in health and disease. Using a 3D microfluidic platform, also called an “organ-on-a-chip,” the Microfluidics Group at Calico created a model that mimics how blood vessels grow in the human body, showing angiogenesis in action.</p>
+
+<p>The green highlights human blood vessel cells as they form branching structures. The blue shows cell nuclei and the scaffold that guides cell growth and organization.</p>
+
+<p>This system helps scientists investigate how molecular signals and environmental factors influence vessel formation — insights that are difficult to capture in traditional models. It’s helping our researchers uncover the signals that support healthy vessel growth, and what might go wrong as we age or in disease.</p>
+
+<p><strong>Calico Collaborators:</strong> Amirali Selahi*, Amin Davarzani</p>
+
+<p><img src="/assets/img/aoc_social_preview.gif" alt="AOC" title="AOC" /></p>
+
+<hr />
+
+<h3 id="teleprot-high-throughput-data-for-ml-guided-enzyme-design">TeleProt: High-Throughput Data for ML-Guided Enzyme Design</h3>
+
+<p><a href="https://www.cell.com/cell-systems/fulltext/S2405-4712(25)00069-9">Engineering highly active nuclease enzymes with machine learning and high-throughput screening
+</a></p>
+
+<p>You can build the most sophisticated machine learning model in the world, but if it doesn’t have massive, high-quality experimental datasets to learn from, it is completely useless. Biological AI has a severe ground-truth data bottleneck.</p>
+
+<p>During my time at Triplebar Bio, in collaboration with Google X and DeepMind, we tackled this exact problem to optimize a nuclease enzyme that degrades chronic wound biofilms. While the ML framework (TeleProt) was the engine, our ultra-high-throughput screening workflows provided the fuel.</p>
+
+<p>We generated a dataset of 55,000 distinct nuclease variants. By feeding the models this scale of function-first data, the AI absolutely crushed traditional directed evolution in finding high-activity variants. We open-sourced the entire 55,000-variant genotype-phenotype landscape, because this volume of functional screening is what it takes to make biological AI work.</p>
+
+<p><strong>Triplebar Collaborators:</strong> Chenling Xu, Hanson Lee, Kat Hirano, Kosuke Iwai, Vanja Polic, Kevin Hoff, Lucas Frenz, Jeremy Agresti<br />
+<strong>Google X Collaborators:</strong> Neil Thomas*, Charlie Emrich, Jun Kim, Mariya Chavarha, Abi Ramanan<br />
+<strong>Deepmind Collaborators:</strong> David Belanger*, Lucy Colwell</p>
+
+<p><img src="/assets/img/nuclease_social_preview.jpg" alt="Enzyme Engineering" title="nuclease" /></p>
+
+<hr />
+<p><em>*project lead</em></p>
+
+      </section>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+# -----------------------------------------------------------------------------
+# Site Settings
+# -----------------------------------------------------------------------------
+title: Kendra Nyberg, Ph.D.
+theme: jekyll-theme-minimal
+description: >- # This description shows up in search engines and link previews
+  Staff microfluidics engineer at Calico. Building ultra-high-throughput workflows to fuel life science R&D.
+baseurl: "" # Leave this empty if your site is at nybergflow.github.io
+url: "https://nybergflow.github.io" 
+
+# -----------------------------------------------------------------------------
+# Author & Social Settings
+# -----------------------------------------------------------------------------
+author:
+  name: Kendra Nyberg
+
+# For the jekyll-seo-tag plugin
+github_username: nybergflow
+
+# Used by the Minimal theme to generate social media links in the sidebar.
+social_links:
+  - { platform: GitHub, user_url: "https://github.com/nybergflow", icon: "fab fa-github" }
+  - { platform: LinkedIn, user_url: "https://www.linkedin.com/in/kendranyberg", icon: "fab fa-linkedin" }
+
+# -----------------------------------------------------------------------------
+# Build Settings
+# -----------------------------------------------------------------------------
+# If you are using standard Jekyll plugins, these are good defaults:
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude these files from being built into the final site
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
