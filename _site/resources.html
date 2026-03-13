@@ -93,6 +93,54 @@
 </div>
 
 <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef; max-width: 500px; margin-bottom: 30px;">
+  <h3 style="margin-top: 0;">Droplet Yield &amp; Frequency Calculator</h3>
+  <p style="font-size: 0.9em; color: #555;">Calculate total droplet yield and generation rate (Hz) based on droplet diameter and dispersed phase flow rate.</p>
+  
+  <div style="margin-bottom: 10px;">
+    <label for="dropDiaCount" style="display: block; font-weight: bold; margin-bottom: 5px;">Droplet Diameter:</label>
+    <div style="display: flex; gap: 10px;">
+      <input type="number" id="dropDiaCount" value="50" style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" />
+      <select id="dropDiaUnitCount" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: white;">
+        <option value="um">μm</option>
+        <option value="mm">mm</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <label for="flowRate" style="display: block; font-weight: bold; margin-bottom: 5px;">Total Aqueous Flow Rate:</label>
+    <div style="display: flex; gap: 10px;">
+      <input type="number" id="flowRate" value="10" style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" />
+      <select id="flowRateUnit" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: white;">
+        <option value="uL/min">µL/min</option>
+        <option value="uL/hr">µL/hr</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="runTime" style="display: block; font-weight: bold; margin-bottom: 5px;">Run Time Duration:</label>
+    <div style="display: flex; gap: 10px;">
+      <input type="number" id="runTime" value="60" style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" />
+      <select id="runTimeUnit" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: white;">
+        <option value="min">Minutes</option>
+        <option value="hr">Hours</option>
+      </select>
+    </div>
+  </div>
+
+  <button onclick="calculateYield()" style="background: #0366d6; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%;">Calculate Yield</button>
+
+  <div id="countResults" style="margin-top: 20px; display: none; background: #fff; padding: 15px; border-radius: 4px; border: 1px solid #ddd;">
+    <p style="color: #0366d6; font-size: 1.2em; margin-top: 0;"><strong>Total Droplets Generated:</strong></p>
+    <p style="font-size: 1.4em; margin: 10px 0;"><strong><span id="totalDropletsFormatted">0</span></strong></p>
+    <p style="color: #555; font-size: 0.9em;">Scientific: <span id="totalDropletsSci">0</span></p>
+    <hr style="border-top: 1px solid #eee; margin: 15px 0;" />
+    <p style="color: #28a745; font-weight: bold;"><strong>Generation Rate:</strong> <span id="frequencyOut">0</span> Hz (droplets/sec)</p>
+  </div>
+</div>
+
+<div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef; max-width: 500px; margin-bottom: 30px;">
   <h3 style="margin-top: 0;">Poisson Droplet Loading Calculator</h3>
   <p style="font-size: 0.9em; color: #555;">Calculate the probability of single-cell encapsulation based on your cell concentration and droplet volume.</p>
   
@@ -183,6 +231,55 @@ function calculateVolume() {
   document.getElementById('volNLOut').innerText = volNL.toFixed(5);
   
   document.getElementById('volResults').style.display = 'block';
+}
+
+// Yield & Frequency Logic
+function calculateYield() {
+  let d = parseFloat(document.getElementById('dropDiaCount').value);
+  const diaUnit = document.getElementById('dropDiaUnitCount').value;
+  const flowRate = parseFloat(document.getElementById('flowRate').value);
+  const flowRateUnit = document.getElementById('flowRateUnit').value;
+  const time = parseFloat(document.getElementById('runTime').value);
+  const timeUnit = document.getElementById('runTimeUnit').value;
+  
+  // Convert diameter to micrometers if mm is selected
+  if (diaUnit === 'mm') {
+    d = d * 1000;
+  }
+  
+  // Calculate volume in cubic micrometers, then convert to picoliters
+  const volUM3 = (Math.PI * Math.pow(d, 3)) / 6;
+  const volPL = volUM3 / 1000;
+  
+  // Standardize Flow Rate to µL/min
+  let flowRateULMin = flowRate;
+  if (flowRateUnit === 'uL/hr') {
+    flowRateULMin = flowRate / 60;
+  }
+  
+  // Standardize Time to minutes
+  let timeMin = time;
+  if (timeUnit === 'hr') {
+    timeMin = time * 60;
+  }
+  
+  // Calculate Total Volume in µL, then convert to pL (1 µL = 1,000,000 pL)
+  const totalVolUL = flowRateULMin * timeMin;
+  const totalVolPL = totalVolUL * 1000000;
+  
+  // Total Droplets
+  const totalDroplets = totalVolPL / volPL;
+  
+  // Generation Frequency (Hz) = total droplets / total seconds
+  const timeSec = timeMin * 60;
+  const frequencyHz = totalDroplets / timeSec;
+  
+  // Update UI
+  document.getElementById('totalDropletsFormatted').innerText = totalDroplets.toLocaleString('en-US', {maximumFractionDigits: 0});
+  document.getElementById('totalDropletsSci').innerText = totalDroplets.toExponential(2);
+  document.getElementById('frequencyOut').innerText = frequencyHz.toLocaleString('en-US', {maximumFractionDigits: 0});
+  
+  document.getElementById('countResults').style.display = 'block';
 }
 
 // Poisson Logic
