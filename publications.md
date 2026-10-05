@@ -5,6 +5,8 @@ title: Publications
 {% include navigation.html %}
 
 ### 2026
+**["Senescent cells induce vascular MHC II to recruit CD4+ T cells and drive inflammation in aging adipose tissue"](https://www.biorxiv.org/content/10.64898/2026.05.13.724992v1)** Q Xie, TD Lin, S Jang, C Jan, A Selahi, **K Nyberg**, AA Wendorff, K Hake, A Lefebvre, M Jin, A Di Francesco, M Pokrovskii, H Tauc-Adrian, C Kenyon
+
 **["A simple automatic liquid dispense arrangement (SALDA) for timelapse microscopy."](https://amsikking.github.io/SALDA_for_timelapse_microscopy/)**  A Millett-Sikking, **KD Nyberg**, J Lazzari-Dean, E Mount, R Keyser. *Zenodo*, 2026.
 
 
