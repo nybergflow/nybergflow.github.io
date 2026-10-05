@@ -13,8 +13,8 @@ Currently at [Calico Life Sciences](https://www.calicolabs.com/), building pract
   
 
 My latest areas of focus:
-1. ultra-high-throughput, miniaturized screening technologies
-2. agentic-ready lab infrastructure: pylab robot, sila servers, robotic arms, integrated systems
+1. Ultra-high-throughput, miniaturized screening technologies
+2. Agentic-ready lab infrastructure: pylab robot, sila servers, robotic arms, integrated systems
     
 
 The goal isn't just to make the hardware faster or just to build cool tools; it's to generate function-first datasets that drive life sciences R&D. 
